@@ -1,0 +1,21 @@
+<div class="jumbotron jumbotron-fluid text-center" style="padding: .5%; background-color:#8B0000;text-shadow: chocolate;margin-bottom: 0%;">
+    <h1 style="color: ivory;font-size:30px;padding-top: 20px;"> BUDGET CALCULATOR</h1>
+</div>
+
+<div class="jumbotron jumbotron-fluid text-center" style="padding: 3%; background-color:black; text-shadow: chocolate;margin-top: 0%;" >
+    <h1 style="font-size:40px; " [ngClass]="{'positive':totalBudget>0,'negative': totalBudget<0,'neutral':totalBudget==0}">{{totalBudget|currency}}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+        <app-add-item-form  (formSubmit)="addItem($event)"></app-add-item-form> 
+        </div>
+        <div class="col-md-2"></div>   
+    </div>  
+</div>
+<div class="container">
+    <app-budget-item-list [budgetItems]="budgetItems" (delete)="deleteItem($event)" (update)="updateItem($event)"></app-budget-item-list>    
+
+</div>

@@ -1,0 +1,16 @@
+<form #form="ngForm" autocomplete="off" (ngSubmit)=onSubmit(form)>
+    <div class="row">
+      <div class="col col-md-3"> 
+        <input type="number" class="form-control" placeholder="Amount" [ngModel]= "item.Amount" name="Amount" required>
+      </div>
+      <div class="col col-md-6">
+        <input type="text" class="form-control" placeholder="Description" [ngModel]= "item.Description"  name="Description" required>
+      </div>
+      <div class="col col-md-3">
+      <button type="submit" [disabled]="form.invalid" [ngClass]="{'btn btn-danger':isNewItem,'btn btn-success':!isNewItem}">
+      <p *ngIf="isNewItem">ADD</p>
+      <p *ngIf="!isNewItem">Save</p></button>
+      </div>
+    </div>
+    
+  </form>

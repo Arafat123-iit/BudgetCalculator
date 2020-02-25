@@ -1,0 +1,8 @@
+<div class="card" (click)="onCardClick()" [ngClass]="{'income': item.Amount >= 0, 'expense': item.Amount<0}" >
+    <div class="card-header">{{item.Description}}
+        <button type="button" class="close" (click)=onXButtonClick() aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="card-body">{{item.Amount| currency}}</div>
+</div>

@@ -1,0 +1,29 @@
+<hr style=" color: #8B0000;">
+<div class="row" style="margin-top: 1.5%;">
+    <div class="col-md-2"></div> 
+    <div class="col-md-4">
+        <h2 style=" color: #32CD32;">INCOME</h2>
+        <div *ngFor="let item of budgetItems">
+        <app-budget-item-card 
+        *ngIf="item.Amount  >= 0"
+        [item]="item"
+        (xButtonClick)=onDelete(item)
+        (cardClick)="onCardClick(item)"></app-budget-item-card>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2 style=" color: #FF0000;">EXPENSE</h2>
+        <div *ngFor="let item of budgetItems">
+        <app-budget-item-card 
+        *ngIf="item.Amount  < 0"
+        [item]="item"
+        (xButtonClick)=onDelete(item)
+        (cardClick)="onCardClick(item)"></app-budget-item-card>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>   
+</div>  
+
+
+
